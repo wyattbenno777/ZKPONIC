@@ -12,4 +12,11 @@ crate-type = ["cdylib"]
 candid = "0.8.2"
 ic-cdk = "0.6.0"
 ic-cdk-macros = "0.6.0"
-ark-groth16 = "0.3.0"
+ark-groth16 = { version = "0.3.0", default-features = false}
+ark-std = { version = "0.3.0", features = ["std"]}
+ark-ff = { version = "0.3.0", default-features = false}
+ark-relations = { version = "0.3.0", default-features = false}
+ark-bn254 = { version = "0.3.0", features = ["curve"]}
+ark-ec = { version = "0.3.0", default-features = false}
+num-traits = "0.2.14"
+ark-serialize = "^0.3.0"

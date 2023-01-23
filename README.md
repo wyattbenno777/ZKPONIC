@@ -16,4 +16,5 @@ dfx start --background
 dfx deploy
 
 # Run commands defined in /zkp_backend/main.rs
+dfx canister call zkp_backend test_groth16 '("")'
 ```
