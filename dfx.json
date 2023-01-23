@@ -1,0 +1,29 @@
+{
+  "canisters": {
+    "zkp_backend": {
+      "candid": "src/zkp_backend/zkp_backend.did",
+      "package": "zkp_backend",
+      "type": "rust"
+    },
+    "zkp_frontend": {
+      "dependencies": [
+        "zkp_backend"
+      ],
+      "frontend": {
+        "entrypoint": "src/zkp_frontend/src/index.html"
+      },
+      "source": [
+        "src/zkp_frontend/assets",
+        "dist/zkp_frontend/"
+      ],
+      "type": "assets"
+    }
+  },
+  "defaults": {
+    "build": {
+      "args": "",
+      "packtool": ""
+    }
+  },
+  "version": 1
+}
