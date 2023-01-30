@@ -1,6 +1,6 @@
 # ZKPonIC
 Rust examples of Zero Knowledge Proofs (ZKP) running on the Internet Computer blockchain.
-This library is for testing the use and deployment of ZKP onto the Internet Computer Blockchain.
+This directory is for testing the use and deployment of ZKP onto the Internet Computer Blockchain.
 
 There are no basic examples of [Arkworks](https://github.com/arkworks-rs) libraries. Anyone can use these examples to understand schemes and get started with our comprehensible templates.
 

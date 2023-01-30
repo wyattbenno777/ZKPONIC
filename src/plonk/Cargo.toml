@@ -1,0 +1,20 @@
+[package]
+name = "plonk"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+candid = "0.8.2"
+ic-cdk = "0.6.0"
+ic-cdk-macros = "0.6.0"
+dusk-plonk = {version = "0.13.0", features = ["alloc"], default-features = false }
+num-traits = "0.2.14"
+rand = "0.7"
+rand_core = { version="0.6.3", features = ["getrandom"] }
+getrandom = { version = "0.2.2", features = ["custom"] }
+dusk-jubjub = {version = "0.12", default-features = false}

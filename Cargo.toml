@@ -1,4 +1,5 @@
 [workspace]
 members = [
     "src/zkp_backend",
+    "src/plonk",
 ]

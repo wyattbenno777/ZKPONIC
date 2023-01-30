@@ -5,6 +5,11 @@
       "package": "zkp_backend",
       "type": "rust"
     },
+    "plonk": {
+      "candid": "src/plonk/plonk.did",
+      "package": "plonk",
+      "type": "rust"
+    },
     "zkp_frontend": {
       "dependencies": [
         "zkp_backend"
