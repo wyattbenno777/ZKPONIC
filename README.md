@@ -2,7 +2,8 @@
 Rust examples of Zero Knowledge Proofs (ZKP) running on the Internet Computer blockchain.
 This directory is for testing the use and deployment of ZKP onto the Internet Computer Blockchain.
 
-There are no basic examples of [Arkworks](https://github.com/arkworks-rs) libraries. Anyone can use these examples to understand schemes and get started with our comprehensible templates.
+There are no basic examples of [Arkworks](https://github.com/arkworks-rs) libraries in use, this repo has those examples.
+Anyone can use these examples to understand schemes and get started with our comprehensible templates.
 
 ## Schemes
 **Groth16** - fastest and smallest SNARK for R1CS.
