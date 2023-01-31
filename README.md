@@ -14,6 +14,11 @@ Updatable common reference string.
 Faster than SONIC which it is based on.
 https://eprint.iacr.org/2019/1047
 
+**Plonk** - a universal preprocessing general-purpose zk-SNARK.
+Updatable preprocessing for new circuits.
+Slower than groth16.
+https://eprint.iacr.org/2019/953
+
 ## Running the project locally
 
 If you want to test your project locally, you can use the following commands:
@@ -25,6 +30,8 @@ dfx start --background
 # Deploys your canisters to the replica and generates your candid interface
 dfx deploy
 
-# Run commands defined in /zkp_backend/main.rs // should return true.
+# Run commands defined in ../lib.rs // should return true.
 dfx canister call zkp_backend test_groth16 '("")'
+
+dfx canister call plonk test_plonk '("")'
 ```

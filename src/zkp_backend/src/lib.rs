@@ -7,6 +7,8 @@ ZKP demos on the IC.
 2023-01-30 by Wyatt
 */
 
+//Arkworks general tests.
+
 use ark_bn254::{Bn254, Fr};
 use ark_ff::Field;
 use ark_groth16::{
