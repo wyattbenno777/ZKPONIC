@@ -4,7 +4,7 @@ ____  __ _  ____   __   __ _  __  ___
  / _/  )  (  ) __/(  O )/    / )(( (__
 (____)(__\_)(__)   \__/ \_)__)(__)\___)
 ZKP demos on the IC.
-2023-01-30 by Wyatt
+2023 by Wyatt
 */
 
 //Arkworks general tests.
@@ -26,6 +26,30 @@ use ark_marlin::Marlin;
 use ark_poly::univariate::DensePolynomial;
 use ark_poly_commit::marlin_pc::MarlinKZG10;
 use blake2::Blake2s;
+
+use rand::{RngCore, SeedableRng as seedableRngMin};
+use rand::rngs::StdRng as StdRngMin;
+use rand::thread_rng;
+use curve25519_dalek::scalar::Scalar;
+use merlin::Transcript;
+use bulletproofs::{BulletproofGens, PedersenGens, RangeProof};
+
+/*
+When trying to use Plonk we depend on rand_core.
+This does not work ou-of-the-box without JS.
+We add our own random generator.
+
+https://docs.rs/getrandom/latest/getrandom/#webassembly-support
+https://forum.dfinity.org/t/issue-about-generate-random-string-panicked-at-could-not-initialize-thread-rng-getrandom-this-target-is-not-supported/15198/3
+*/
+use getrandom::register_custom_getrandom;
+fn custom_getrandom(buf: &mut [u8]) -> Result<(), getrandom::Error> {
+    let mut rng = StdRngMin::seed_from_u64(123);
+    rng.fill_bytes(buf);
+    return Ok(());
+}
+
+register_custom_getrandom!(custom_getrandom);
 
 /*
  Define test circuit

@@ -1,3 +1,4 @@
 service : {
-    "greet": (text) -> (text) query;
+    "test_groth16": () -> (text) query;
+    "test_marlin": () -> (text) query;
 }

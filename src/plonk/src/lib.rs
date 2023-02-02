@@ -4,7 +4,7 @@ ____  __ _  ____   __   __ _  __  ___
  / _/  )  (  ) __/(  O )/    / )(( (__
 (____)(__\_)(__)   \__/ \_)__)(__)\___)
 ZKP demos on the IC.
-2023-01-30 by Wyatt
+2023 by Wyatt
 */
 
 use dusk_plonk::prelude::*;

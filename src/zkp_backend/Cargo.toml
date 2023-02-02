@@ -25,3 +25,10 @@ ark-serialize = "^0.3.0"
 ark-poly-commit = { version = "0.3.0", default-features = false }
 ark-poly = { version = "0.3.0", default-features = false }
 blake2 = { version = "0.9", default-features = false }
+bulletproofs = "4.0.0"
+curve25519-dalek = "3.2.1"
+merlin = "3.0.0"
+rand = "0.7"
+rand_core = { version="0.6.3", features = ["getrandom"] }
+getrandom = { version = "0.2.2", features = ["custom"] }
+recrypt = { version = "~0.11.0", features = ["wasm"], default-features = false }
