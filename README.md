@@ -20,6 +20,9 @@ Updatable preprocessing for new circuits.
 Slower than groth16.
 https://eprint.iacr.org/2019/953
 
+**Bulletproofs** - non-universal setup for range proofs.
+https://eprint.iacr.org/2017/1066.pdf
+
 ## Running the project locally
 
 If you want to test your project locally, you can use the following commands:

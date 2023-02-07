@@ -27,12 +27,12 @@ use ark_poly::univariate::DensePolynomial;
 use ark_poly_commit::marlin_pc::MarlinKZG10;
 use blake2::Blake2s;
 
-use rand::{RngCore, SeedableRng as seedableRngMin};
+use rand::{RngCore};
 use rand::rngs::StdRng as StdRngMin;
 use rand::thread_rng;
-use curve25519_dalek::scalar::Scalar;
 use merlin::Transcript;
 use bulletproofs::{BulletproofGens, PedersenGens, RangeProof};
+use curve25519_dalek_ng::{scalar::Scalar};
 
 /*
 When trying to use Plonk we depend on rand_core.
@@ -157,4 +157,45 @@ fn test_marlin() -> String {
 
     let result = MarlinInst::verify(&index_vk, public_input, &proof, rng).unwrap();
     format!("Verify proof: {:?}!", result)
+}
+
+/*
+ Bulletproofs - non-universal setup for range proofs.
+ https://eprint.iacr.org/2017/1066.pdf
+*/
+
+#[ic_cdk_macros::query]
+fn test_bulletproofs() -> String {
+    // Generators for Bulletproofs, valid for proofs up to bitsize 64
+    // and aggregation size up to 1.
+    let pc_gens = PedersenGens::default();
+
+    // Generators for Bulletproofs, valid for proofs up to bitsize 64
+    // and aggregation size up to 1.
+    let bp_gens = BulletproofGens::new(64, 1);
+
+    // A secret value we want to prove lies in the range [0, 2^32)
+    let secret_value = 1037578891u64;
+
+    let blinding = Scalar::random(&mut thread_rng());
+    let mut prover_transcript = Transcript::new(b"doctest example");
+
+    // Create a 32-bit rangeproof.
+    let (proof, committed_value) = RangeProof::prove_single(
+        &bp_gens,
+        &pc_gens,
+        &mut prover_transcript,
+        secret_value,
+        &blinding,
+        32,
+    ).expect("A real program could handle errors");
+
+    // Verification requires a transcript with identical initial state:
+    let mut verifier_transcript = Transcript::new(b"doctest example");
+    let result = match proof.verify_single(&bp_gens, &pc_gens, &mut verifier_transcript, &committed_value, 32) {
+        Ok(x) => "Ok".to_string(),
+        Err(e) => format!("Err: {}", e),
+    };
+    format!("Verify proof: {}", result)
+
 }
