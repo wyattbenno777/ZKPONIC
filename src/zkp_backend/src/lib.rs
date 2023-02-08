@@ -34,6 +34,13 @@ use merlin::Transcript;
 use bulletproofs::{BulletproofGens, PedersenGens, RangeProof};
 use curve25519_dalek_ng::{scalar::Scalar};
 
+use anyhow::Result;
+use plonky2::field::types::Field as PlonkyField;
+use plonky2::iop::witness::{PartialWitness, WitnessWrite};
+use plonky2::plonk::circuit_builder::CircuitBuilder;
+use plonky2::plonk::circuit_data::CircuitConfig;
+use plonky2::plonk::config::{GenericConfig, PoseidonGoldilocksConfig};
+
 /*
 When trying to use Plonk we depend on rand_core.
 This does not work ou-of-the-box without JS.
@@ -193,7 +200,7 @@ fn test_bulletproofs() -> String {
     // Verification requires a transcript with identical initial state:
     let mut verifier_transcript = Transcript::new(b"doctest example");
     let result = match proof.verify_single(&bp_gens, &pc_gens, &mut verifier_transcript, &committed_value, 32) {
-        Ok(x) => "Ok".to_string(),
+        Ok(_x) => "Ok".to_string(),
         Err(e) => format!("Err: {}", e),
     };
     format!("Verify proof: {}", result)

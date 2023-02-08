@@ -10,6 +10,11 @@
       "package": "plonk",
       "type": "rust"
     },
+    "plonkytwotest": {
+      "candid": "src/plonkytwotest/plonkytwotest.did",
+      "package": "plonkytwotest",
+      "type": "rust"
+    },
     "zkp_frontend": {
       "dependencies": [
         "zkp_backend"

@@ -23,6 +23,10 @@ https://eprint.iacr.org/2019/953
 **Bulletproofs** - non-universal setup for range proofs.
 https://eprint.iacr.org/2017/1066.pdf
 
+**Plonky2** - a recursive SNARK with fast proofs and no trusted setup.
+https://github.com/mir-protocol/plonky2/blob/main/plonky2/plonky2.pdf
+https://drops.dagstuhl.de/opus/volltexte/2018/9018/pdf/LIPIcs-ICALP-2018-14.pdf
+
 ## Running the project locally
 
 If you want to test your project locally, you can use the following commands:
